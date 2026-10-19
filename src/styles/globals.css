@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand: GMDC pine-teal + road-sign yellow on a soft off-white (see CLAUDE.md) */
+  --color-brand-50: #e6f2ef;
+  --color-brand-100: #cfe6e0;
+  --color-brand-200: #9fcdc1;
+  --color-brand-300: #6fb3a2;
+  --color-brand-500: #16806b;
+  --color-brand-600: #0f6b5a;
+  --color-brand-700: #0c5a4b;
+  --color-brand-800: #0b473c;
+  --color-brand-900: #0e2e28;
+
+  /* Road-sign yellow: always paired with dark text */
+  --color-accent: #ffc145;
+  --color-accent-hover: #f5b12a;
+  --color-accent-soft: #fff3d6;
+  /* Readable dark yellow for icons and text on light backgrounds */
+  --color-accent-ink: #8a5a00;
+
+  /* Neutrals */
+  --color-ink: #0e2e28;
+  --color-ink-soft: #24453e;
+  --color-muted: #566661;
+  --color-subtle: #566661;
+  --color-line: #e1e7e3;
+  --color-line-soft: #ecf0ed;
+  --color-soft: #f5f7f4;
+  --color-soft-2: #eef2ef;
+
+  /* White text on the brand WhatsApp green fails contrast, so buttons use the dark shade */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #0f7a3f;
+  --color-whatsapp-darker: #0b6534;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 0.75rem;
+  --radius-card: 1.25rem;
+  --radius-panel: 1.75rem;
+
+  --shadow-soft: 0 1px 2px rgb(20 52 43 / 0.05), 0 1px 3px rgb(20 52 43 / 0.04);
+  --shadow-card: 0 8px 24px rgb(20 52 43 / 0.07), 0 2px 6px rgb(20 52 43 / 0.04);
+  --shadow-raised: 0 24px 50px rgb(20 52 43 / 0.14);
+
+  --ease-brand: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-soft font-sans text-ink-soft antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-bold tracking-tight text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
+
+@layer components {
+  /* Google Material Symbols (Rounded). The font is loaded in the root layout; see components/icons/Icon.tsx */
+  .icon {
+    font-family: "Material Symbols Rounded";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.25em;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    flex-shrink: 0;
+    white-space: nowrap;
+    direction: ltr;
+    user-select: none;
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: "FILL" 0, "wght" 400, "opsz" 24;
+  }
+
+  .icon-filled {
+    font-variation-settings: "FILL" 1, "wght" 400, "opsz" 24;
+  }
+}
+
+/* Dark panels (footer, CTA) use a light focus ring */
+@utility on-dark {
+  & :focus-visible {
+    outline-color: var(--color-brand-200);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
