@@ -69,9 +69,9 @@ CONTENT RULES (important)
 ## Current design direction (client still choosing between this and the white + blue version)
 
 - Started from the uicookies "Campus" layout, then made GMDC's own: own palette, own heading font and a "route" motif. Copy none of Campus's content or numbers.
-- Palette tokens in `src/styles/globals.css`: pine-teal `brand-50`..`brand-900` (main `brand-600` #0F6B5A, dark panels `brand-900` #0E2E28), road-sign yellow `accent` #FFC145 (always with dark text; `accent-ink` #8A5A00 for yellow-ish icons/text on light backgrounds), page background `soft` #F5F7F4, text `ink`/`ink-soft`/`muted`.
+- Palette tokens in `src/styles/globals.css` (client chose Royal Blue + Amber): `brand-50`..`brand-900` blues (main `brand-600` #1F4FD1, dark panels `brand-900` #0F1E4A), amber `accent` #FFB020 (always with dark text; `accent-ink` #8A5300 for amber icons/text on light backgrounds), page background `soft` #F6F8FC, text `ink` #0F1E4A / `ink-soft` / `muted` #57617A.
 - Fonts: Sora (headings), Mulish (body). Icons: Google Material Symbols via `<Icon name="..." />`; add names to `iconNames` before use. WhatsApp uses its own SVG.
-- Route motif: dashed yellow route lines and pins (hero photo, quote search connector, CTA corner), numbered `Eyebrow`s (`number="01"`), "How it works" drawn as stops on a dashed road, road centre-line in the facts band.
+- Route motif: dashed amber route lines and pins (hero photo, quote search connector, CTA corner), numbered `Eyebrow`s (`number="01"`), "How it works" drawn as stops on a dashed road, road centre-line in the facts band.
 - Home order: Hero (headline, `HeroQuote` search, popular chips, photo with route and floating cards), `ServicesGrid` (cards with growing accent strip), `FactsBand`, `HowItWorks`, `CtaBanner` (text left, photo right). Pill buttons.
 - Hero/CTA photo `public/images/hero-van.jpg` is CC0 stock (plate blurred). Replace with a real GMDC van photo when supplied.
 - Dark panels add the `on-dark` utility so focus rings stay visible.

@@ -1,33 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand: GMDC pine-teal + road-sign yellow on a soft off-white (see CLAUDE.md) */
-  --color-brand-50: #e6f2ef;
-  --color-brand-100: #cfe6e0;
-  --color-brand-200: #9fcdc1;
-  --color-brand-300: #6fb3a2;
-  --color-brand-500: #16806b;
-  --color-brand-600: #0f6b5a;
-  --color-brand-700: #0c5a4b;
-  --color-brand-800: #0b473c;
-  --color-brand-900: #0e2e28;
+  /* Brand: GMDC royal blue + amber on a cool off-white (see CLAUDE.md) */
+  --color-brand-50: #eef3ff;
+  --color-brand-100: #dce6ff;
+  --color-brand-200: #b4c8fb;
+  --color-brand-300: #86a4f5;
+  --color-brand-500: #3563e9;
+  --color-brand-600: #1f4fd1;
+  --color-brand-700: #1a40a8;
+  --color-brand-800: #16337f;
+  --color-brand-900: #0f1e4a;
 
-  /* Road-sign yellow: always paired with dark text */
-  --color-accent: #ffc145;
-  --color-accent-hover: #f5b12a;
-  --color-accent-soft: #fff3d6;
-  /* Readable dark yellow for icons and text on light backgrounds */
-  --color-accent-ink: #8a5a00;
+  /* Amber: always paired with dark text */
+  --color-accent: #ffb020;
+  --color-accent-hover: #f59e0b;
+  --color-accent-soft: #fff4db;
+  /* Readable dark amber for icons and text on light backgrounds */
+  --color-accent-ink: #8a5300;
 
   /* Neutrals */
-  --color-ink: #0e2e28;
-  --color-ink-soft: #24453e;
-  --color-muted: #566661;
-  --color-subtle: #566661;
-  --color-line: #e1e7e3;
-  --color-line-soft: #ecf0ed;
-  --color-soft: #f5f7f4;
-  --color-soft-2: #eef2ef;
+  --color-ink: #0f1e4a;
+  --color-ink-soft: #26335e;
+  --color-muted: #57617a;
+  --color-subtle: #57617a;
+  --color-line: #e2e7f1;
+  --color-line-soft: #edf0f6;
+  --color-soft: #f6f8fc;
+  --color-soft-2: #eef2fa;
 
   /* White text on the brand WhatsApp green fails contrast, so buttons use the dark shade */
   --color-whatsapp: #25d366;
