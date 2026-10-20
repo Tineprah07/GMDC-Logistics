@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { HeroQuote } from "@/components/forms/HeroQuote";
-import { Icon, type IconName } from "@/components/icons/Icon";
+import { HeroSlideshow } from "@/components/sections/home/HeroSlideshow";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import { services } from "@/data/services";
@@ -14,10 +13,7 @@ const popular = [
   { slug: "trade-construction-deliveries", label: "Trade deliveries" },
 ].filter((chip) => services.some((service) => service.slug === chip.slug));
 
-/**
- * Split hero: headline and quote search on the left; on the right a van photo
- * with a dashed delivery route drawn across it, ending at two info cards.
- */
+/** Split hero: headline and quote search on the left, a photo and illustration slideshow on the right. */
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden">
@@ -65,90 +61,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xl pb-8 lg:max-w-none lg:pb-0">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-panel bg-brand-900 shadow-raised lg:aspect-[5/4]">
-            <Image
-              src="/images/hero-van.jpg"
-              alt="A white long wheelbase van parked on a city street"
-              fill
-              preload
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover object-[35%_center]"
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-brand-900/45 via-transparent to-brand-900/10" />
-
-            {/* Dashed delivery route from bottom-left to top-right */}
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 400 320"
-              preserveAspectRatio="none"
-              className="absolute inset-0 size-full"
-              fill="none"
-            >
-              <path
-                d="M40 285 C 120 280, 140 200, 210 190 S 330 150, 355 45"
-                className="stroke-accent"
-                strokeWidth="3"
-                strokeDasharray="2 9"
-                strokeLinecap="round"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-            <RoutePin className="bottom-[6%] left-[7%]" />
-            <RoutePin className="top-[10%] right-[8%]" />
-          </div>
-
-          <FloatingCard
-            className="bottom-0 -left-2 sm:-left-6 lg:bottom-6"
-            icon="trip_origin"
-            iconClass="bg-brand-50 text-brand-600"
-            title="Same-day collection"
-            text="Any time, day or night"
-          />
-          <FloatingCard
-            className="-top-5 -right-2 sm:-right-6"
-            icon="verified_user"
-            iconClass="bg-accent-soft text-accent-ink"
-            title="Delivered, insured"
-            text="Goods-in-transit cover"
-          />
-        </div>
+        <HeroSlideshow />
       </Container>
     </section>
-  );
-}
-
-function RoutePin({ className }: { className: string }) {
-  return (
-    <span aria-hidden="true" className={`absolute flex size-4 items-center justify-center ${className}`}>
-      <span className="absolute size-full animate-ping rounded-full bg-accent/60 motion-reduce:hidden" />
-      <span className="relative size-3 rounded-full border-2 border-white bg-accent" />
-    </span>
-  );
-}
-
-function FloatingCard({
-  className,
-  icon,
-  iconClass,
-  title,
-  text,
-}: {
-  className: string;
-  icon: IconName;
-  iconClass: string;
-  title: string;
-  text: string;
-}) {
-  return (
-    <div className={`absolute flex items-center gap-3 rounded-card bg-white py-3 pr-5 pl-3 shadow-raised ${className}`}>
-      <span className={`flex size-11 shrink-0 items-center justify-center rounded-control ${iconClass}`}>
-        <Icon name={icon} filled className="text-[1.35rem]" />
-      </span>
-      <span>
-        <span className="block font-heading text-[0.9375rem] font-bold text-ink">{title}</span>
-        <span className="block text-[0.8rem] text-muted">{text}</span>
-      </span>
-    </div>
   );
 }
